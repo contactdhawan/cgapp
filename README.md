@@ -38,4 +38,17 @@
 1. Run `ng serve` and it should bring up a secure angular app, you might want to enable pop-up.
 
 ## Put this code to AWS
+1. Go To S3 and create a bucket with public access disable
+1. Add a tag `sse-s3` and choose `Amazon S3 Key (SSe-S3)` encryption option
+1. Go to cloudfron and `Create a distribution`
+1. Choose S3 bucket, restrict Bucket Access, Create a New identity, Update Bucket Policy
+1. Click on distribution and make a note of domain name `https://d122a6fee4gm7s.cloudfront.net/`
+1. Go to `app.module.ts` file and update redirect url `localhost:4200` to new url `https://d122a6fee4gm7s.cloudfront.net/`
+1. Run `ng build --prod` to create a minify version on application.
+1. Upload files from `dist` folder
+1. Go to Azure AD -> Authentication -> ADD URI -> and add `https://d122a6fee4gm7s.cloudfront.net/`
+1. Go to ClodFront -> Choose your distribution -> Errors -> Add index.html for 403 and 404
+1. Create a Invalidation to clear cache.
+1. Final add that will be secure, it takes like 15 mins to app working because of cloud front.
 
+![Final App](FinalSecure.PNG)

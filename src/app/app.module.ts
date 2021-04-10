@@ -14,7 +14,6 @@ import {
   MsalAngularConfiguration
 } from '@azure/msal-angular';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { HomeComponent } from './home/home.component';
 import { Configuration } from 'msal';
 
 export const protectedResourceMap: [string, string[]][] = [
@@ -23,14 +22,14 @@ export const protectedResourceMap: [string, string[]][] = [
 
 const isIE = window.navigator.userAgent.indexOf("MSIE ") > -1 || window.navigator.userAgent.indexOf("Trident/") > -1;
 
-function MSALConfigFactory(): Configuration {
+export function MSALConfigFactory(): Configuration {
   return {
     auth: {
-      clientId: 'Your Client ID HERE',
-      authority: "https://login.microsoftonline.com/YOUR APPLICATION ID HERE/",
+      clientId: 'Your client ID',
+      authority: "https://login.microsoftonline.com/YOUR Tennant ID/",
       validateAuthority: true,
-      redirectUri: "http://localhost:4200/",
-      postLogoutRedirectUri: "http://localhost:4200/",
+      redirectUri: "https://d122a6fee4gm7s.cloudfront.net/",
+      postLogoutRedirectUri: "https://d122a6fee4gm7s.cloudfront.net/",
       navigateToLoginRequestUrl: true,
     },
     cache: {
@@ -40,7 +39,7 @@ function MSALConfigFactory(): Configuration {
   };
 }
 
-function MSALAngularConfigFactory(): MsalAngularConfiguration {
+export function MSALAngularConfigFactory(): MsalAngularConfiguration {
   return {
     popUp: !isIE,
     consentScopes: [
