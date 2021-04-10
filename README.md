@@ -1,5 +1,10 @@
 # Cgapp
 
+## Register App on Azure
+1. Login Azure AD, go to App Registration -> Click New Registration
+![Registration APP](Register.png)
+1. 
+
 ## Create a Angular app with routing (Unsecured)
 1. Create a app `ng new cgapp --routing`
 1. Delete app.component.html content and just keep `<router-outlet></router-outlet>`
